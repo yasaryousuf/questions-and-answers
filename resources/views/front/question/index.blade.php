@@ -56,9 +56,10 @@
                 <div class="listing-grid ">
                   <div class="row">
                     <div class="col-md-2 col-sm-2 col-xs-12 hidden-xs">
-                      <a data-toggle="tooltip" data-placement="bottom" data-original-title="Martina Jaz" href="#"><img alt="" class="correct img-responsive center-block" src="images/authors/1.jpg">
+                      <a data-toggle="tooltip" data-placement="bottom" data-original-title="{{$question->user['name']}}" href="#">
+                      <img alt="" class="correct img-responsive center-block" src="{{asset('/image/avatar/'.$question->user['avatar'])}}">
                       </a>
-                      <span class="tick"><i class="fa fa-check" aria-hidden="true"></i></span>
+                      {{-- <span class="tick"><i class="fa fa-check" aria-hidden="true"></i></span> --}}
                     </div>
                     <div class="col-md-7 col-sm-8  col-xs-12">
                         <h3>
@@ -67,7 +68,7 @@
                             </a>
                         </h3>
                       <div class="listing-meta">
-                        <span><i class="fa fa-clock-o" aria-hidden="true"></i>{{$question->created_at}} 8 mintes ago</span>
+                        <span><i class="fa fa-clock-o" aria-hidden="true"></i>{{$question->created_at}}</span>
                         <span><i class="fa fa fa-eye" aria-hidden="true"></i> 750 Views</span>
 
                       </div>

@@ -44,7 +44,7 @@
 <body>
     @include('front.includes.header')
     @yield('body')
-@include('front.includes.social-media')
+{{-- @include('front.includes.social-media') --}}
 	<!-- =-=-=-=-=-=-= FOOTER =-=-=-=-=-=-= -->
 @include('front.includes.footer')
 	<!-- =-=-=-=-=-=-= JQUERY =-=-=-=-=-=-= -->

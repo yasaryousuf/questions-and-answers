@@ -26,4 +26,9 @@ class User extends Authenticatable
     public function questions() {
         return $this->hasMany('App\Question');
     }
+
+    public function getAvatarAttribute($value)
+    {
+        return $value ? $value : 'blank-profile-picture.png';
+    }
 }

@@ -6,7 +6,7 @@
 				<ul class="top-nav nav-left">
 					<li><a href="{{url('/')}}">Home</a>
 					</li>
-					<li  class="hidden-xs"><a href="{{url('/contact-us')}}">Contact Us</a>
+					<li  class="hidden-xs"><a href="{{url('/contact')}}">Contact Us</a>
 					</li>
 				</ul>
 			</div>
@@ -20,17 +20,24 @@
 					@else
 						<li class="dropdown"> 
 							<a class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" data-animations="fadeInUp">
-								<img class="img-circle resize" alt="" src="{{asset('/')}}front/images/authors/13.jpg">
+								<img class="img-circle resize" alt="" src="{{asset('/image/avatar/'.Auth::user()->avatar)}}">
 								<span class="hidden-xs small-padding">
 								<span>{{Auth::user()->name}}</span>
 								<i class="fa fa-caret-down"></i>
 								</span>
 							</a>
 							<ul class="dropdown-menu ">
-								<li><a href="profile.html"><i class=" icon-bargraph"></i> Dashboard</a></li>
-								<li><a href="profile-setting.html"><i class=" icon-gears"></i> Profile Setting</a></li>
-								<li><a href="question-list.html"><i class="icon-heart"></i> Questions</a></li>
-								<li><a href="#"><i class="icon-lock"></i> Logout</a></li>
+								<li><a href="/user/dashboard"><i class=" icon-bargraph"></i> Dashboard</a></li>
+								<li><a href="/user/edit"><i class=" icon-gears"></i> Profile Setting</a></li>
+								<li><a href="/user/questions"><i class="icon-heart"></i> Questions</a></li>
+								<li>
+									<a href="#" onclick="document.getElementById('logout-form').submit()">
+										<form action="{{url('logout')}}" method="POST" id="logout-form">
+											@csrf
+										</form>
+										<i class="icon-lock"></i> Logout
+									</a>
+								</li>
 							</ul>
 						</li>
 					@endif
@@ -52,7 +59,7 @@
 					<span class="icon-bar"></span>
 				</button>
 				<!-- logo -->
-				<a href="index.html" class="navbar-brand">
+				<a href="/" class="navbar-brand">
 					<img class="img-responsive" alt="" src="{{asset('/')}}front/images/logo.png">
 				</a>
 				<!-- header end -->
