@@ -53,6 +53,7 @@
               <!-- form login -->
                 <form method="POST" action="{{ route('login') }}">
                 @csrf
+
                 <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                   <label>Email</label>
                   <input type="email" placeholder="Your Email" class="form-control" name="email">

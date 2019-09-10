@@ -62,12 +62,12 @@
                     </div>
                     <div class="col-md-7 col-sm-8  col-xs-12">
                         <h3>
-                            <a  href="#"> 
+                            <a href="#"> 
                                 {{$question->title}}	
                             </a>
                         </h3>
                       <div class="listing-meta">
-                        <span><i class="fa fa-clock-o" aria-hidden="true"></i>8 mintes ago</span>
+                        <span><i class="fa fa-clock-o" aria-hidden="true"></i>{{$question->created_at}} 8 mintes ago</span>
                         <span><i class="fa fa fa-eye" aria-hidden="true"></i> 750 Views</span>
 
                       </div>
@@ -87,7 +87,7 @@
 
                     <div class="col-md-10 col-sm-10  col-xs-12">
                       <p>
-                        {{$question->title}}
+                        {!!$question->content!!}
                       </p>
                       <div class="pull-right tagcloud">
                         <a href="#">Php</a>

@@ -63,11 +63,11 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li class="hidden-sm"><a href="how-work.html">How  It Works</a>
 					</li>
-					<li><a href="listing.html">Browse Questions</a>
+					<li><a href="/question">Browse Questions</a>
 					</li>
 
 					<li>
-						<div class="btn-nav"><a href="post-question.html" class="btn btn-primary btn-small navbar-btn">Post Question</a>
+						<div class="btn-nav"><a href="/question/create" class="btn btn-primary btn-small navbar-btn">Post Question</a>
 						</div>
 					</li>
 				</ul>
