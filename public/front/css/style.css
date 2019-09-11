@@ -458,8 +458,8 @@ p {
 
 .btn-primary {
     text-transform: uppercase;
-    background-color: #222;
-    border-color: #222;
+    background-color: #99173C;
+    border-color: #2E2633;
 }
 
 .light-dark {
@@ -557,7 +557,7 @@ hr.main {
 }
 
 .page-title {
-    background-color: #EFEFEF;
+    background-color: #EFFFCD;
     /* border-bottom: 1px solid #dedde1;
 	border-top: 1px solid #dedde1; */
     display: block;
@@ -570,7 +570,7 @@ hr.main {
     font-weight: 500;
     margin: 0;
     padding: 0;
-    color: #4A2748;
+    color: #2E2633;
 }
 
 .slices {
@@ -598,22 +598,22 @@ hr.main {
 }
 
 .breadcrumb li a {
-    color: #4A2748;
+    color: #2E2633;
 }
 
 .breadcrumb li a:hover {
-    color: #d8d8d8;
+    color: #555152;
 }
 
 .breadcrumb li.active {
-    color: #4A2748;
+    color: #555152;
 }
 
 
 /* =-=-=-=-=-=-= Header Top Bar =-=-=-=-=-=-= */
 
 .top-bar {
-    background: #4A2748 none repeat scroll 0 0;
+    background: #99173C none repeat scroll 0 0;
 }
 
 .top-bar::after {
@@ -722,7 +722,7 @@ hr.main {
     padding: 12px 28px;
     font-size: 14px;
     color: #fff;
-    background-color: #4A2748;
+    background-color: #99173C;
 }
 
 .my-style {
@@ -741,7 +741,7 @@ hr.main {
 
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus {
-    color: #4A2748;
+    color: #555152;
     background-color: transparent;
 }
 
@@ -851,7 +851,7 @@ hr.main {
 }
 
 .navbar-default {
-    background-color: #A9A9A9;
+    background-color: #2E2633;
 }
 
 .navbar-fixed-top {
@@ -872,7 +872,7 @@ hr.main {
 }
 
 .navbar-nav li a {
-    color: #4A2748;
+    color: #fff;
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
@@ -955,7 +955,7 @@ hr.main {
 }
 
 .full-section.search-section-listing {
-    background: #353b65 url("../images/slider3.jpg") no-repeat scroll center top;
+    background: #353b65 url("../images/unsplash.jpg") no-repeat scroll center top;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -3686,7 +3686,7 @@ label {
 /* =-=-=-=-=-=-= Footer =-=-=-=-=-=-= */
 
 .footer-area {
-    background: #181718 repeat-x scroll center bottom;
+    background: #99173C repeat-x scroll center bottom;
     color: #c9c9c9;
     font-family: 'Open Sans', sans-serif;
     position: relative;
@@ -3905,8 +3905,9 @@ label {
 }
 
 .footer-copyright {
+    background-color: #2E2633;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #808080;
+    color: white;
     font-size: 15px;
     padding: 16px 0;
     position: relative;

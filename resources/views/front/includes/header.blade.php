@@ -22,7 +22,7 @@
 							<a class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" data-animations="fadeInUp">
 								<img class="img-circle resize" alt="" src="{{asset('/image/avatar/'.Auth::user()->avatar)}}">
 								<span class="hidden-xs small-padding">
-								<span>{{Auth::user()->name}}</span>
+								<span>{{Auth::user()->name}}</span> &nbsp;
 								<i class="fa fa-caret-down"></i>
 								</span>
 							</a>
@@ -60,7 +60,7 @@
 				</button>
 				<!-- logo -->
 				<a href="/" class="navbar-brand">
-					<img class="img-responsive" alt="" src="{{asset('/')}}front/images/logo.png">
+					<img class="img-responsive" alt="" src="{{asset('/')}}front/images/logo-02.png">
 				</a>
 				<!-- header end -->
 			</div>
@@ -68,8 +68,7 @@
 			<div class="navbar-collapse collapse">
 				<!-- right bar -->
 				<ul class="nav navbar-nav navbar-right">
-					<li class="hidden-sm"><a href="how-work.html">How  It Works</a>
-					</li>
+
 					<li><a href="/question">Browse Questions</a>
 					</li>
 

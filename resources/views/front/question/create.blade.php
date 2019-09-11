@@ -64,30 +64,11 @@
                   <label>Question Title</label>
                   <input type="text" placeholder="Bootstrap Not Working" class="form-control" name="title">
                 </div>
-                <div class="form-group">
-                  <label>Category</label>
-                  <select class="questions-category form-control">
-                    <option value="0">All Categories</option>
-                    <option value="36">Php</option>
-                    <option value="37">Html</option>
-                    <option value="42">Bootstrap</option>
-                    <option value="43">Wordpress</option>
-                    <option value="44">Laravel</option>
-                    <option value="45">Plugins</option>
-                    <option value="46">Routes</option>
-                    <option value="47">Css</option>
-                    <option value="48">Responsive</option>
-                    <option value="38">File Upload</option>
-                    <option value="39">Ajax</option>
-                    <option value="40">Jquery</option>
-                    <option value="41">Featured</option>
-                  </select>
-                </div>
 
                 <div class="form-group">
                   <label>Tags</label>
 
-                  <input type="text" id="tags" value="Php,Laravel,Bootstrap" class="form-control" data-role="tagsinput">
+                  <input type="text" id="tags" value="Php,Laravel,Bootstrap" class="form-control" data-role="tagsinput" name="tags">
                 </div>
 
                 <div class="form-group">
@@ -139,21 +120,21 @@
 
                   <div class="news-post">
                     <div class="post">
-                      <figure class="post-thumb"><img alt="" src="images/blog/small-1.png">
+                      <figure class="post-thumb"><img alt="" src="/front/images/blog/small-1.png">
                       </figure>
                       <h4><a href="#">Differentiate Yourself And Attract More Attention </a></h4>
                       <div class="post-info">1 hour ago</div>
                     </div>
 
                     <div class="post">
-                      <figure class="post-thumb"><img alt="" src="images/blog/small-2.png">
+                      <figure class="post-thumb"><img alt="" src="/front/images/blog/small-2.png">
                       </figure>
                       <h4><a href="#">Differentiate Yourself And Attract More Attention </a></h4>
                       <div class="post-info">1 hour ago</div>
                     </div>
 
                     <div class="post">
-                      <figure class="post-thumb"><img alt="" src="images/blog/small-3.png">
+                      <figure class="post-thumb"><img alt="" src="/front/images/blog/small-3.png">
                       </figure>
                       <h4><a href="#">Differentiate Yourself And Attract More Attention </a></h4>
                       <div class="post-info">1 hour ago</div>

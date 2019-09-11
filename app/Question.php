@@ -20,4 +20,9 @@ class Question extends Model
     {
         return Carbon::createFromDate($value)->diffForHumans();
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag');
+    }
 }

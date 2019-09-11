@@ -1,0 +1,57 @@
+.footer-area a {
+    color: #99173C;
+}
+
+.footer-area a:hover {
+    color: #555152 !important;
+}
+
+.btn-primary:hover {
+    background-color: #2E2633 !important;
+}
+
+.side-bar .widget h2 {
+    color: #2E2633;
+    border-left: 2px solid #99173C;
+    border-right: 2px solid #99173C;
+}
+
+.pagination>.active>a:hover,
+.pagination li:hover>a,
+.pagination>.active>a {
+    background-color: #99173C;
+    border-color: #99173C;
+}
+
+.side-bar .widget h1,
+.side-bar .widget h2,
+.side-bar .widget h3,
+.side-bar .widget h4,
+.side-bar .widget h5,
+.side-bar .widget a:hover {
+    color: #99173C;
+}
+
+.side-bar .widget ul li a:hover {
+    color: #99173C;
+}
+
+form.search-form input.search-btn {
+    background-color: #99173C;
+}
+
+form.search-form input.search-btn:hover {
+    background-color: #2E2633;
+}
+
+.breadcrumb li.active {
+    color: #99173C;
+}
+
+.bootstrap-tagsinput .label {
+    font-size: 14px;
+}
+
+.bootstrap-tagsinput .label-info {
+    background-color: #99173C;
+}

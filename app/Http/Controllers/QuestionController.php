@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Question;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
@@ -27,6 +28,11 @@ class QuestionController extends Controller
 
     public function store(Request $request)
     {
+        $submitted_tags = [];
+        if (!empty($request->tags)) {
+            $submitted_tags = explode(",", $request->tags);
+        }
+
         $request->validate($this->validationRule);
 
         $question = Question::create([
@@ -34,6 +40,14 @@ class QuestionController extends Controller
             'title' => $request->title,
             'content' => $request->content,
         ]);
+
+        $question->tags()->detach([]);
+        foreach ($submitted_tags as $submitted_tag ) {
+            $tag = Tag::where('title', trim($submitted_tag))->first();
+            if (!$tag) {
+                $question->tags()->attach($tag->id);
+            }
+        }
 
         return back()->with('message', 'Question is saved successfully.');
     }
