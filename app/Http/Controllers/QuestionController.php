@@ -44,7 +44,7 @@ class QuestionController extends Controller
         $question->tags()->detach([]);
         foreach ($submitted_tags as $submitted_tag ) {
             $tag = Tag::where('title', trim($submitted_tag))->first();
-            if (!$tag) {
+            if (!count($tag)) {
                 $question->tags()->attach($tag->id);
             }
         }
