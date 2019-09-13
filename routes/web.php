@@ -1,17 +1,17 @@
 <?php
 
 
-Route::get('/', function () {
-    return view('front.layouts.master');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contact', 'HomeController@contact');
 
 Route::get('/user/edit', 'UserController@edit');
 Route::get('/user/dashboard', 'UserController@dashboard');
 Route::get('/user/questions', 'UserController@questions');
 
-Route::resource('question', 'QuestionController');
+Route::get('/questions', 'QuestionController@index');
+Route::get('/question/ask', 'QuestionController@create')->middleware('auth');
+Route::get('/question/{id}', 'QuestionController@show');
+Route::post('/question', 'QuestionController@store')->name('question.store');

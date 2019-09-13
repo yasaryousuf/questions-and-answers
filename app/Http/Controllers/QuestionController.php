@@ -17,7 +17,7 @@ class QuestionController extends Controller
 
     public function index()
     {
-        $questions = Question::all();
+        $questions = Question::paginate('5');
         return view('front.question.index', compact('questions'));
     }
 
@@ -43,8 +43,10 @@ class QuestionController extends Controller
 
         $question->tags()->detach([]);
         foreach ($submitted_tags as $submitted_tag ) {
-            $tag = Tag::where('title', trim($submitted_tag))->first();
-            if (!count($tag)) {
+            $submitted_tag = strtolower(trim($submitted_tag));
+            $tag = Tag::where('title', $submitted_tag)->first();
+            if (!$tag) {
+                $tag = Tag::create(['title' => $submitted_tag]);
                 $question->tags()->attach($tag->id);
             }
         }
@@ -52,9 +54,10 @@ class QuestionController extends Controller
         return back()->with('message', 'Question is saved successfully.');
     }
 
-    public function show(Question $question)
+    public function show($id)
     {
-        //
+        $question = Question::find($id);
+        return view('front.question.show', \compact('question'));
     }
 
     public function edit(Question $question)

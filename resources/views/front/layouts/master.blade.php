@@ -18,7 +18,9 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('/')}}front/css/owl.style.css">
 	<link type="text/css" rel="stylesheet" href="{{asset('/')}}front/css/styles/shCoreDefault.css" />
     <link type="text/css" rel="stylesheet" href="{{asset('/')}}front/css/animate.min.css" />
+    <link type="text/css" rel="stylesheet" href="{{asset('/')}}front/css/toastr.min.css" />
     <link type="text/css" rel="stylesheet" href="{{asset('/')}}front/css/bootstrap-dropdownhover.min.css" />
+	<script src="{{asset('/')}}front/js/jquery.min.js"></script>
 	<script src="{{asset('/')}}front/js/modernizr.js"></script>
 </head>
 
@@ -27,7 +29,6 @@
     @yield('body')
 	@include('front.includes.footer')
 
-	<script src="{{asset('/')}}front/js/jquery.min.js"></script>
 	<script src="{{asset('/')}}front/js/bootstrap.min.js"></script>
 	<script src="{{asset('/')}}front/js/jquery.smoothscroll.js"></script>
 	<script type="text/javascript" src="{{asset('/')}}front/js/easing.js"></script>
@@ -36,6 +37,7 @@
 	<script src="{{asset('/')}}front/js/jquery.appear.min.js"></script>
 	<script src="{{asset('/')}}front/js/tags-input.js"></script>
 	<script src="{{asset('/')}}front/js/carousel.min.js"></script>
+	<script src="{{asset('/')}}front/js/toastr.min.js"></script>
 	<script src="{{asset('/')}}front/js/jquery.stellar.min.js"></script>
 	<script src="{{asset('/')}}front/js/bootstrap-dropdownhover.min.js"></script>
 	<script type="text/javascript" src="{{asset('/')}}front/scripts/shCore.js"></script>

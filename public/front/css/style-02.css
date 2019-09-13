@@ -55,3 +55,45 @@ form.search-form input.search-btn:hover {
 .bootstrap-tagsinput .label-info {
     background-color: #99173C;
 }
+
+.question-tabs .panel-tabs>li.active>a,
+.question-tabs .panel-tabs>li.active>a:hover,
+.question-tabs .panel-tabs>li.active>a:focus {
+    border-bottom: 2px solid #99173c;
+}
+
+.question-tabs .panel-tabs>li>a:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: #99173c;
+}
+
+.listing-grid .tagcloud a {
+    padding: 3px 10px 5px 10px;
+    border-radius: 10px;
+    background-color: #99173c;
+    color: #fff;
+}
+
+ul.question-statistic li.active span {
+    background-color: #99173c;
+}
+
+ul.question-statistic li span {
+    border: 1px solid #99173c;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+    padding: 10px 14px;
+}
+
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
+    background-color: #99173c;
+    border-color: #99173c;
+}

@@ -3,18 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Question;
 
 class HomeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+
     }
 
 
     public function index()
     {
-        return view('home');
+        $recentQuestions = Question::orderBy('created_at')->take(10)->get();
+        return view('front.index', \compact('recentQuestions'));
     }
 
 

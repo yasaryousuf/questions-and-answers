@@ -69,11 +69,11 @@
 				<!-- right bar -->
 				<ul class="nav navbar-nav navbar-right">
 
-					<li><a href="/question">Browse Questions</a>
+					<li><a href="/questions">Browse Questions</a>
 					</li>
 
 					<li>
-						<div class="btn-nav"><a href="/question/create" class="btn btn-primary btn-small navbar-btn">Post Question</a>
+						<div class="btn-nav"><a href="/question/ask" class="btn btn-primary btn-small navbar-btn">Post Question</a>
 						</div>
 					</li>
 				</ul>

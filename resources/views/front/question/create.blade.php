@@ -45,9 +45,14 @@
               <!-- form login -->
 
                 @if (session('message'))
-                    <div class="alert alert-success" role="alert">
+                <script>
+                  $(document).ready(function() {
+                    toastr.success("<?= session('message') ?>")
+                  });
+                </script>
+                    {{-- <div class="alert alert-success" role="alert">
                         {{ session('message') }}
-                    </div>
+                    </div> --}}
                 @endif
                 @if ($errors->any())
                     <div class="alert alert-danger">

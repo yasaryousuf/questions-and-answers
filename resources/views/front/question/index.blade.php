@@ -1,16 +1,7 @@
 @extends('front.layouts.master')
 
 @section('body')
-  <div class="full-section search-section-listing">
-    <div class="search-area container">
-      <h3 class="search-title">Have a Question?</h3>
-      <p class="search-tag-line">If you have any question you can ask below or enter what you are looking for!</p>
-      <form autocomplete="off" method="get" class="search-form clearfix" id="search-form">
-        <input type="text" title="* Please enter a search term!" placeholder="Type your search terms here" class="search-term " autocomplete="off">
-        <input type="submit" value="Search" class="search-btn">
-      </form>
-    </div>
-  </div>
+  @include('front.includes.search')
   <!-- =-=-=-=-=-=-= Search Bar END =-=-=-=-=-=-= -->
   <!-- =-=-=-=-=-=-= Main Area =-=-=-=-=-=-= -->
   <div class="main-content-area">
@@ -63,7 +54,7 @@
                     </div>
                     <div class="col-md-7 col-sm-8  col-xs-12">
                         <h3>
-                            <a href="#"> 
+                            <a href="/question/{{$question->id}}	"> 
                                 {{$question->title}}	
                             </a>
                         </h3>
@@ -91,9 +82,11 @@
                         {!!$question->content!!}
                       </p>
                       <div class="pull-right tagcloud">
-                        <a href="#">Php</a>
-                        <a href="#">recursive</a>
-                        <a href="#">error</a>
+                        @if ($question->tags)
+                          @foreach ($question->tags as $tag)
+                            <a href="#">{{$tag->title}}</a> 
+                          @endforeach
+                        @endif
                       </div>
                     </div>
 
@@ -107,20 +100,8 @@
 
                 <!-- Pagination View More -->
                 <div class="text-center clearfix">
-                  <ul class="pagination ">
-                    <li>
-                      <a aria-label="Previous" href="#"> <span aria-hidden="true">&lt;</span> </a>
-                    </li>
-                    <li><a href="#">1</a>
-                    </li>
-                    <li class="active"><a href="#">2</a>
-                    </li>
-                    <li><a href="#">3</a>
-                    </li>
-                    <li>
-                      <a aria-label="Next" href="#"> <span aria-hidden="true">&gt;</span> </a>
-                    </li>
-                  </ul>
+                {{ $questions->links() }}
+
                 </div>
                 <!-- Pagination View More End -->
 
