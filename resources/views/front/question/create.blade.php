@@ -47,25 +47,7 @@
               <hr>
               <!-- form login -->
 
-                @if (session('message'))
-                <script>
-                  $(document).ready(function() {
-                    toastr.success("<?= session('message') ?>")
-                  });
-                </script>
-                    {{-- <div class="alert alert-success" role="alert">
-                        {{ session('message') }}
-                    </div> --}}
-                @endif
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif              
+                @include('front.others.errorSuccessMessage')
                 <form method="POST" action="{{ route('question.store') }}" name="ask-question">
                 @csrf
                 <div class="form-group">
@@ -193,15 +175,6 @@
           maxHeight: null,             // set maximum height of editor
           focus: true                  // set focus to editable area after initializing summernote
         });
-
-        form.submit(function (e) {
-          e.preventDefault();
-          if (editor.summernote('isEmpty')) {
-            swal('', 'Question details content is empty', 'error');
-            return false;
-          }
-          form.submit();
-        })
 
       });
     </script>

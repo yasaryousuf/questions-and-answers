@@ -22,6 +22,7 @@
         </div>
       </div>
     </section>
+    @include('front.others.errorSuccessMessage')
     <section class="section-padding-80 white question-details">
       <div class="container">
         <div class="row">
@@ -33,7 +34,7 @@
                   <div class="listing-meta"> <span><i class="fa fa-clock-o" aria-hidden="true"></i>{{$question->created_at}}</span> <span><i class="fa fa fa-eye" aria-hidden="true"></i> 750 Views</span> </div>
                 </div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                  {{$question->content}}
+                  {!!$question->content!!}
                   <p></p>
                   <div class="tagcloud"> 
                       @if ($question->tags)
@@ -49,6 +50,7 @@
             <div class="clearfix"></div>
             <div class="thread-reply">
               <h2>Thread Reply </h2>
+              @foreach ($question->comments as $comment)
               <div class="media-block card-box ribbon-content">
                 <div class="ribbon base"><span>Correct Answer</span>
                 </div>
@@ -62,35 +64,12 @@
                 </div>
                 <div class="media-body">
                   <div class="mar-btm">
-                    <h4><a href="#" class="btn-link text-semibold media-heading box-inline">Muhammad Umair</a></h4>
+                    <h4><a href="#" class="btn-link text-semibold media-heading box-inline">
+                  {{$comment->user->name}}
+                </a></h4>
                     <p class="text-muted text-sm"><i class="fa fa-mobile fa-lg"></i> - From Mobile - 11 min ago</p>
                   </div>
-                  <p>I think this is what you are looking for. You need to remove the <code>float: left</code> from the inner nav to center it and make it a inline-block.</p>
-                  <pre class="brush: php syntaxhighlight">     
-                        .navbar .navbar-nav {
-                          display: inline-block;
-                          float: none;
-                          vertical-align: top;
-                        }
-                        
-                        .navbar .navbar-collapse {
-                          text-align: center;
-                        }
-                                </pre>
-                  <p><strong>Edit: </strong>if you only want this effect to happen when the nav isn't collapsed surround it in the appropriate media query.</p>
-                  <pre class="brush: php syntaxhighlight">
-                        @media (min-width: 768px) {
-                            .navbar .navbar-nav {
-                                display: inline-block;
-                                float: none;
-                                vertical-align: top;
-                            }
-                        
-                            .navbar .navbar-collapse {
-                                text-align: center;
-                            }
-                        }
-                                </pre>
+                  {{$comment->content}}
                   <div class="pad-ver pull-right">
 
                     <a class="btn btn-sm btn-default btn-hover-success" data-toggle="tooltip" data-placement="bottom" data-original-title="Like This Answer" href="#"><i class="fa fa-thumbs-up"></i></a>
@@ -99,39 +78,26 @@
                   </div>
 
                 </div>
-              </div>
-              <div class="media-block card-box ">
-
-                <div class="media-left">
-                  <a href="#">
-                    <img class="img-sm" alt="Profile Picture" src="images/authors/7.jpg">
-
-                  </a>
-
+              <div class="clearfix"></div>
+                <button class="btn btn-primary btn-lg btn-block reply_answer_show" type="button">Reply to this answer</button>
+              <div class="reply_answer_section" style="display: none">
+              <form action="/question/{{$question->id}}/comment" method="POST">
+                @csrf
+                <input type="hidden" name="parent_id" value="{{$comment->id}}">
+                <div class="form-group">
+                  <label>Reply to this answer</label>
+                  <textarea cols="12" rows="3" class="form-control" placeholder="I Have The Aswert" name="content"></textarea>
                 </div>
-                <div class="media-body">
-                  <div class="mar-btm">
-                    <h4><a href="#" class="btn-link text-semibold media-heading box-inline">Martina Jaz</a></h4>
-                    <p class="text-muted text-sm"><i class="fa fa-mobile fa-lg"></i> - From Mobile - 21 min ago</p>
-                  </div>
-                  <p>I think this is what you are looking for. You need to remove the <code>float: left</code> from the inner nav to center it and make it a inline-block.</p>
-                  <pre class="brush: php syntaxhighlight">
-$('#nav').affix({
-      offset: {
-        top: $('header').height()
-      }
-}); 
-                                </pre>
-                  <div class="pad-ver pull-right">
 
-                    <a class="btn btn-sm btn-default btn-hover-success" data-toggle="tooltip" data-placement="bottom" data-original-title="Like This Answer" href="#"><i class="fa fa-thumbs-up"></i></a>
-                    <a class="btn btn-sm btn-default btn-hover-danger" href="#" data-original-title="Spam" data-placement="bottom" data-toggle="tooltip"><i class="fa fa-thumbs-down"></i></a>
+                <button class="btn btn-primary btn-lg btn-block reply_answer_submit" type="submit">Post Your Answer</button>
 
-                    <a class="btn btn-sm btn-default btn-hover-primary" href="#">Mark As Correct</a>
-                  </div>
+              </form>
 
-                </div>
               </div>
+              </div>
+                  
+              @endforeach
+
               <div class="media-block card-box ">
 
                 <div class="media-left">
@@ -164,13 +130,14 @@ $(function(){
               </div>
               <div class="clearfix"></div>
 
-              <form>
+              <form action="/question/{{$question->id}}/comment" method="POST">
+                @csrf
                 <div class="form-group">
                   <label>Post Your Answer</label>
-                  <textarea cols="12" rows="7" class="form-control" placeholder="I Have The Aswert"></textarea>
+                  <textarea cols="12" rows="7" class="form-control" placeholder="I Have The Aswert" name="content"></textarea>
                 </div>
 
-                <button class="btn btn-primary btn-lg btn-block">Post Your Answer</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Post Your Answer</button>
 
               </form>
 
@@ -248,4 +215,17 @@ $(function(){
       </div>
     </section>
   </div>
+@endsection
+
+
+@section('script')
+    <script>
+      $(document).ready(function() {
+        $('.reply_answer_show').click(function () {
+          $(this).hide();
+          $(this).parents('.card-box').find('.reply_answer_section').toggle();
+        })
+      });
+    </script>
+    
 @endsection

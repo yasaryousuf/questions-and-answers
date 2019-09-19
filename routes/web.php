@@ -15,3 +15,5 @@ Route::get('/questions', 'QuestionController@index');
 Route::get('/question/ask', 'QuestionController@create')->middleware('auth');
 Route::get('/question/{id}', 'QuestionController@show');
 Route::post('/question', 'QuestionController@store')->name('question.store');
+
+Route::post('/question/{id}/comment', 'CommentController@store');

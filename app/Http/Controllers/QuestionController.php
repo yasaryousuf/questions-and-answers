@@ -38,7 +38,7 @@ class QuestionController extends Controller
         $question = Question::create([
             'user_id' => Auth::user()->id,
             'title' => $request->title,
-            'content' => $request->content,
+            'content' => Question::sanitizeHtml($request->content),
         ]);
 
         $question->tags()->detach([]);
