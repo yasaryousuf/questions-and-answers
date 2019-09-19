@@ -1,4 +1,7 @@
 @extends('front.layouts.master')
+@section('style')
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+@endsection
 @section('body')
   <div class="main-content-area">
 
@@ -63,7 +66,7 @@
                         </ul>
                     </div>
                 @endif              
-                <form method="POST" action="{{ route('question.store') }}">
+                <form method="POST" action="{{ route('question.store') }}" name="ask-question">
                 @csrf
                 <div class="form-group">
                   <label>Question Title</label>
@@ -78,7 +81,7 @@
 
                 <div class="form-group">
                   <label>Question Detials</label>
-                  <textarea cols="12" rows="12" placeholder="Post Your Question Details Here....." id="message" name="content" class="form-control"></textarea>
+                  <textarea id="summernote" cols="12" rows="12" placeholder="Post Your Question Details Here....." id="message" name="content" class="form-control"></textarea>
                 </div>
 
                 <button class="btn btn-primary pull-right" type="submit">Publish Your Question</button>
@@ -165,4 +168,41 @@
 
 
   </div>
+@endsection
+
+@section('script')
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        const editor = $('#summernote');
+        const form = $('[name="ask-question"]');
+
+        editor.summernote({
+          toolbar: [
+            // [groupName, [list of button]]
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']]
+          ],
+          height: 300,                 // set editor height
+          minHeight: null,             // set minimum height of editor
+          maxHeight: null,             // set maximum height of editor
+          focus: true                  // set focus to editable area after initializing summernote
+        });
+
+        form.submit(function (e) {
+          e.preventDefault();
+          if (editor.summernote('isEmpty')) {
+            swal('', 'Question details content is empty', 'error');
+            return false;
+          }
+          form.submit();
+        })
+
+      });
+    </script>
 @endsection

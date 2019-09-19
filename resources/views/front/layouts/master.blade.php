@@ -19,7 +19,8 @@
 	<link type="text/css" rel="stylesheet" href="{{asset('/')}}front/css/styles/shCoreDefault.css" />
     <link type="text/css" rel="stylesheet" href="{{asset('/')}}front/css/animate.min.css" />
     <link type="text/css" rel="stylesheet" href="{{asset('/')}}front/css/toastr.min.css" />
-    <link type="text/css" rel="stylesheet" href="{{asset('/')}}front/css/bootstrap-dropdownhover.min.css" />
+	<link type="text/css" rel="stylesheet" href="{{asset('/')}}front/css/bootstrap-dropdownhover.min.css" />
+	@yield('style')
 	<script src="{{asset('/')}}front/js/jquery.min.js"></script>
 	<script src="{{asset('/')}}front/js/modernizr.js"></script>
 </head>
@@ -29,6 +30,7 @@
     @yield('body')
 	@include('front.includes.footer')
 
+	@yield('script')
 	<script src="{{asset('/')}}front/js/bootstrap.min.js"></script>
 	<script src="{{asset('/')}}front/js/jquery.smoothscroll.js"></script>
 	<script type="text/javascript" src="{{asset('/')}}front/js/easing.js"></script>

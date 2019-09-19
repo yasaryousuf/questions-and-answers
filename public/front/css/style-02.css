@@ -1,5 +1,5 @@
 .footer-area a {
-    color: #99173C;
+    color: #99173c;
 }
 
 .footer-area a:hover {
@@ -7,20 +7,20 @@
 }
 
 .btn-primary:hover {
-    background-color: #2E2633 !important;
+    background-color: #2e2633 !important;
 }
 
 .side-bar .widget h2 {
-    color: #2E2633;
-    border-left: 2px solid #99173C;
-    border-right: 2px solid #99173C;
+    color: #2e2633;
+    border-left: 2px solid #99173c;
+    border-right: 2px solid #99173c;
 }
 
-.pagination>.active>a:hover,
-.pagination li:hover>a,
-.pagination>.active>a {
-    background-color: #99173C;
-    border-color: #99173C;
+.pagination > .active > a:hover,
+.pagination li:hover > a,
+.pagination > .active > a {
+    background-color: #99173c;
+    border-color: #99173c;
 }
 
 .side-bar .widget h1,
@@ -29,23 +29,23 @@
 .side-bar .widget h4,
 .side-bar .widget h5,
 .side-bar .widget a:hover {
-    color: #99173C;
+    color: #99173c;
 }
 
 .side-bar .widget ul li a:hover {
-    color: #99173C;
+    color: #99173c;
 }
 
 form.search-form input.search-btn {
-    background-color: #99173C;
+    background-color: #99173c;
 }
 
 form.search-form input.search-btn:hover {
-    background-color: #2E2633;
+    background-color: #2e2633;
 }
 
 .breadcrumb li.active {
-    color: #99173C;
+    color: #99173c;
 }
 
 .bootstrap-tagsinput .label {
@@ -53,16 +53,16 @@ form.search-form input.search-btn:hover {
 }
 
 .bootstrap-tagsinput .label-info {
-    background-color: #99173C;
+    background-color: #99173c;
 }
 
-.question-tabs .panel-tabs>li.active>a,
-.question-tabs .panel-tabs>li.active>a:hover,
-.question-tabs .panel-tabs>li.active>a:focus {
+.question-tabs .panel-tabs > li.active > a,
+.question-tabs .panel-tabs > li.active > a:hover,
+.question-tabs .panel-tabs > li.active > a:focus {
     border-bottom: 2px solid #99173c;
 }
 
-.question-tabs .panel-tabs>li>a:hover {
+.question-tabs .panel-tabs > li > a:hover {
     background-color: transparent;
     border-color: transparent;
     color: #99173c;
@@ -83,17 +83,21 @@ ul.question-statistic li span {
     border: 1px solid #99173c;
 }
 
-.pagination>li>a,
-.pagination>li>span {
+.pagination > li > a,
+.pagination > li > span {
     padding: 10px 14px;
 }
 
-.pagination>.active>a,
-.pagination>.active>span,
-.pagination>.active>a:hover,
-.pagination>.active>span:hover,
-.pagination>.active>a:focus,
-.pagination>.active>span:focus {
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
     background-color: #99173c;
     border-color: #99173c;
+}
+
+.swal-overlay {
+    background-color: rgba(43, 165, 137, 0.45);
 }
