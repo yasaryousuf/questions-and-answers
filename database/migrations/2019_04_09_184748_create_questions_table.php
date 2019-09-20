@@ -12,6 +12,8 @@ class CreateQuestionsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->string('title');
+            $table->string('slug');
+            $table->integer('views')->nullable();
             $table->longText('content');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

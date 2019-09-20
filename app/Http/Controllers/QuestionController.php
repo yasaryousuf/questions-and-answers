@@ -38,6 +38,7 @@ class QuestionController extends Controller
         $question = Question::create([
             'user_id' => Auth::user()->id,
             'title' => $request->title,
+            'slug' => Question::slug($request->title),
             'content' => Question::sanitizeHtml($request->content),
         ]);
 
@@ -54,9 +55,8 @@ class QuestionController extends Controller
         return back()->with('message', 'Question is saved successfully.');
     }
 
-    public function show($id)
+    public function show(Question $question)
     {
-        $question = Question::find($id);
         return view('front.question.show', \compact('question'));
     }
 
@@ -72,6 +72,7 @@ class QuestionController extends Controller
 
     public function destroy(Question $question)
     {
-        //
+        $question->delete();
+        return back()->with('message', 'Question is deleted successfully.');
     }
 }

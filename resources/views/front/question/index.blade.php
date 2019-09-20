@@ -54,13 +54,14 @@
                     </div>
                     <div class="col-md-7 col-sm-8  col-xs-12">
                         <h3>
-                            <a href="/question/{{$question->id}}	"> 
+                            <a href="/question/{{$question->slug}}"> 
                                 {{$question->title}}	
                             </a>
                         </h3>
                       <div class="listing-meta">
                         <span><i class="fa fa-clock-o" aria-hidden="true"></i>{{$question->created_at}}</span>
                         <span><i class="fa fa fa-eye" aria-hidden="true"></i> 750 Views</span>
+                          <span><i class="fa fa-comment" aria-hidden="true"></i>{{count($question->comments)}} Comment</span>
 
                       </div>
 

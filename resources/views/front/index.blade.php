@@ -38,20 +38,36 @@
 													</a>
 												</div>
 												<div class="col-md-7 col-sm-8  col-xs-12">
-												<h3><a  href="/question/{{$recentQuestion->id}}"> {{$recentQuestion->title}} </a></h3>
-													<div class="listing-meta"> <span><i class="fa fa-clock-o" aria-hidden="true"></i>{{$recentQuestion->created_at}}</span>  <span><i class="fa fa fa-eye" aria-hidden="true"></i> 750 Views</span> 
+												<h3><a  href="/question/{{$recentQuestion->slug}}"> {{$recentQuestion->title}} </a></h3>
+													<div class="listing-meta"> 
+														<span><i class="fa fa-clock-o" aria-hidden="true"></i>{{$recentQuestion->created_at}}</span>  
+														<span><i class="fa fa fa-eye" aria-hidden="true"></i> 750 Views</span> 
+														<span><i class="fa fa-comment" aria-hidden="true"></i>{{count($recentQuestion->comments)}} Comment</span>
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-2 col-xs-12">
 													<ul class="question-statistic">
-														<li class="active"> <a data-toggle="tooltip" data-placement="bottom" data-original-title="Answers"><span>2</span></a> 
+														<li class="active"> 
+															<a data-toggle="tooltip" data-placement="bottom" data-original-title="Answers">
+																<span>2</span>
+															</a> 
 														</li>
-														<li> <a data-toggle="tooltip" data-placement="bottom" data-original-title="Votes"><span>0</span></a> 
+														<li> 
+															<a data-toggle="tooltip" data-placement="bottom" data-original-title="Votes">
+																<span>0</span>
+															</a> 
+														</li>
+														<li>
+															<form method="POST" action="{{ route('question.destroy', [$recentQuestion->id]) }}">
+																@csrf
+																@method('DELETE')
+																<button class="btn btn-success" type="submit">Delete</button>
+															</form>
 														</li>
 													</ul>
 												</div>
 												<div class="col-md-10 col-sm-10  col-xs-12">
-												<p>{{$recentQuestion->content}}</p>
+												<p>{!!$recentQuestion->content!!}</p>
 													<div class="pull-right tagcloud"> 
 														@if ($recentQuestion->tags)
 															@foreach ($recentQuestion->tags as $tag)
