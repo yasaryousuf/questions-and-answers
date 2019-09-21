@@ -58,7 +58,7 @@
 															</a> 
 														</li>
 														<li>
-															<form method="POST" action="{{ route('question.destroy', [$recentQuestion->id]) }}">
+															<form method="POST" action="{{ route('questions.destroy', [$recentQuestion->slug]) }}">
 																@csrf
 																@method('DELETE')
 																<button class="btn btn-success" type="submit">Delete</button>
