@@ -63,10 +63,10 @@ class QuestionPolicy
      * @param  \App\Question  $question
      * @return mixed
      */
-    // public function delete(User $user, Question $question)
-    // {
-    //     return $user->id === $question->user_id;
-    // }
+    public function delete(User $user, Question $question)
+    {
+        return $user->id === $question->user_id;
+    }
 
     /**
      * Determine whether the user can restore the question.

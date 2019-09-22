@@ -15,8 +15,8 @@ Route::get('/questions', 'QuestionController@index');
 Route::get('/question/ask', 'QuestionController@create')->middleware('auth');
 Route::get('/question/{question}', 'QuestionController@show');
 Route::post('/question', 'QuestionController@store')->name('question.store');
-Route::get('/question/{question}/edit', 'QuestionController@edit')->name('questions.edit');
-Route::put('/question/{question}', 'QuestionController@update')->name('questions.update');
-Route::delete('/question/{question}', 'QuestionController@destroy')->name('questions.destroy');
+Route::get('/question/{question}/edit', 'QuestionController@edit')->name('questions.edit')->middleware('auth');
+Route::put('/question/{question}', 'QuestionController@update')->name('questions.update')->middleware('auth');
+Route::delete('/question/{question}', 'QuestionController@destroy')->name('questions.destroy')->middleware('auth');
 
 Route::post('/question/{id}/comment', 'CommentController@store');

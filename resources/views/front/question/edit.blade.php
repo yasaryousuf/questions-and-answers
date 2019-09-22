@@ -50,6 +50,7 @@
                 @include('front.others.errorSuccessMessage')
                 <form method="POST" action="{{ route('questions.update', [$question->slug]) }}" name="ask-question">
                 @csrf
+                @method('PUT')
                 <div class="form-group">
                   <label>Question Title</label>
                 <input type="text" placeholder="Bootstrap Not Working" class="form-control" name="title" value="{{$question->title}}">
@@ -57,8 +58,13 @@
 
                 <div class="form-group">
                   <label>Tags</label>
+                    <?php    
+                    $tags = '';
+                    if (count($question->tags))   {
+                        $tags = $question->tags->map(function($v){return $v->title;})->implode(',');
 
-                  <input type="text" id="tags" value="Php,Laravel,Bootstrap" class="form-control" data-role="tagsinput" name="tags">
+                    } ?>
+                  <input type="text" id="tags" value="<?= $tags; ?>" class="form-control" data-role="tagsinput" name="tags">
                 </div>
 
                 <div class="form-group">

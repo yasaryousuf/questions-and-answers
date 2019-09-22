@@ -67,7 +67,31 @@ class QuestionController extends Controller
 
     public function update(Request $request, Question $question)
     {
-        //
+        $submitted_tags = [];
+        if (!empty($request->tags)) {
+            $submitted_tags = explode(",", $request->tags);
+        }
+
+        $request->validate($this->validationRule);
+
+        $question = Question::create([
+            'user_id' => Auth::user()->id,
+            'title' => $request->title,
+            'slug' => Question::slug($request->title),
+            'content' => Question::sanitizeHtml($request->content),
+        ]);
+
+        $question->tags()->detach([]);
+        foreach ($submitted_tags as $submitted_tag ) {
+            $submitted_tag = strtolower(trim($submitted_tag));
+            $tag = Tag::where('title', $submitted_tag)->first();
+            if (!$tag) {
+                $tag = Tag::create(['title' => $submitted_tag]);
+                $question->tags()->attach($tag->id);
+            }
+        }
+
+        return back()->with('message', 'Question is saved successfully.');
     }
 
     public function destroy(Question $question)

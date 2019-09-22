@@ -30,7 +30,7 @@
 							<div class="tab-content">
 								<div id="tab1" class="tab-pane active">
 									@foreach ($recentQuestions as $recentQuestion)
-										<div class="listing-grid wow animated bounceInUp">
+										<div class="listing-grid">
 											<div class="row">
 												<div class="col-md-2 col-sm-2 col-xs-12 hidden-xs">
 												<a data-toggle="tooltip" data-placement="bottom" data-original-title="{{$recentQuestion->user->name}}" href="/user/{{$recentQuestion->user->id}}">
@@ -66,7 +66,12 @@
 															<form method="POST" action="{{ route('questions.destroy', [$recentQuestion->slug]) }}">
 																@csrf
 																@method('DELETE')
-																<a data-toggle="tooltip" data-placement="bottom" data-original-title="Delete">
+																<a 
+																	class="delete-button"
+																	data-toggle="tooltip" 
+																	data-placement="bottom" 
+																	data-original-title="Delete"
+																>
 																	<span><i class="fa fa-times"></i></span>
 																</a> 
 															</form>
