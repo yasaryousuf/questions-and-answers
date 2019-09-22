@@ -40,6 +40,7 @@
 	<script src="{{asset('/')}}front/js/tags-input.js"></script>
 	<script src="{{asset('/')}}front/js/carousel.min.js"></script>
 	<script src="{{asset('/')}}front/js/toastr.min.js"></script>
+	<script src="{{asset('/')}}front/js/wow.min.js"></script>
 	<script src="{{asset('/')}}front/js/jquery.stellar.min.js"></script>
 	<script src="{{asset('/')}}front/js/bootstrap-dropdownhover.min.js"></script>
 	<script type="text/javascript" src="{{asset('/')}}front/scripts/shCore.js"></script>

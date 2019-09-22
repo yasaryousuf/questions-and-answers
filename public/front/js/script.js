@@ -1,3 +1,4 @@
 $(document).ready(function() {
-    $('.bootstrap-tagsinput').addClass('form-control');
+    new WOW().init();
+    $(".bootstrap-tagsinput").addClass("form-control");
 });

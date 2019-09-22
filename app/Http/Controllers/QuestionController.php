@@ -62,7 +62,7 @@ class QuestionController extends Controller
 
     public function edit(Question $question)
     {
-        //
+        return view('front.question.edit', \compact('question'));
     }
 
     public function update(Request $request, Question $question)
