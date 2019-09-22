@@ -74,7 +74,8 @@ class QuestionController extends Controller
 
         $request->validate($this->validationRule);
 
-        $question = Question::create([
+        Question::where('id', $question->id)
+          ->update([
             'user_id' => Auth::user()->id,
             'title' => $request->title,
             'slug' => Question::slug($request->title),
@@ -91,7 +92,7 @@ class QuestionController extends Controller
             }
         }
 
-        return back()->with('message', 'Question is saved successfully.');
+        return redirect('/')->with('message', 'Question is updated successfully.');
     }
 
     public function destroy(Question $question)
