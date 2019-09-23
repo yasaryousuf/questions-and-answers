@@ -130,6 +130,17 @@
                   <label>Email</label>
                   <input type="email" placeholder="Your Email" class="form-control" name="email">
                 </div>
+                <button class="btn btn-primary btn-lg">Update My Profile</button>
+
+              </form>
+              <!-- form login -->
+
+            </div>
+            <div style="margin-top: 20px"></div>
+            <div class="box-panel">
+
+              <!-- form login -->
+              <form action="/user" method="POST">
                 <div class="form-group">
                   <label>Password</label>
                   <input type="password" placeholder="Your Password" class="form-control" name="password">
@@ -138,9 +149,7 @@
                   <label>Confirm Password</label>
                   <input type="password" placeholder="Your Password" class="form-control" name="password_confirm">
                 </div>
-
-
-                <button class="btn btn-primary btn-lg">Update My Profile</button>
+                <button class="btn btn-primary btn-lg">Update My Password</button>
 
               </form>
               <!-- form login -->
