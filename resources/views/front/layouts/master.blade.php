@@ -27,6 +27,7 @@
 
 <body>
     @include('front.includes.header')
+    @include('front.others.errorSuccessMessage')
     @yield('body')
 	@include('front.includes.footer')
 
@@ -45,6 +46,7 @@
 	<script src="{{asset('/')}}front/js/bootstrap-dropdownhover.min.js"></script>
 	<script type="text/javascript" src="{{asset('/')}}front/scripts/shCore.js"></script>
 	<script type="text/javascript" src="{{asset('/')}}front/scripts/shBrushPhp.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="{{asset('/')}}front/js/custom.js"></script>
 	<script src="{{asset('/')}}front/js/script.js"></script>
 </body>

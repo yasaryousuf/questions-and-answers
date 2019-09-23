@@ -67,7 +67,7 @@
 																@csrf
 																@method('DELETE')
 																<a 
-																	class="delete-button"
+																	class="question-delete-button"
 																	data-toggle="tooltip" 
 																	data-placement="bottom" 
 																	data-original-title="Delete"

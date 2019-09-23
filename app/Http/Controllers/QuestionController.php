@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Question;
+use App\Comment;
 use App\Tag;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class QuestionController extends Controller
 
     public function index()
     {
-        $questions = Question::paginate('5');
+        $questions = Question::orderBy('created_at', 'desc')->paginate('5');
         return view('front.question.index', compact('questions'));
     }
 
@@ -42,14 +43,14 @@ class QuestionController extends Controller
             'content' => Question::sanitizeHtml($request->content),
         ]);
 
-        $question->tags()->detach([]);
+        $question->tags()->detach();
         foreach ($submitted_tags as $submitted_tag ) {
             $submitted_tag = strtolower(trim($submitted_tag));
             $tag = Tag::where('title', $submitted_tag)->first();
             if (!$tag) {
                 $tag = Tag::create(['title' => $submitted_tag]);
-                $question->tags()->attach($tag->id);
             }
+            $question->tags()->attach($tag->id);
         }
 
         return back()->with('message', 'Question is saved successfully.');
@@ -57,7 +58,8 @@ class QuestionController extends Controller
 
     public function show(Question $question)
     {
-        return view('front.question.show', \compact('question'));
+        $answers = Comment::where('question_id', $question->id)->whereNull('parent_id')->get();
+        return view('front.question.show', \compact('question', 'answers'));
     }
 
     public function edit(Question $question)
@@ -82,14 +84,14 @@ class QuestionController extends Controller
             'content' => Question::sanitizeHtml($request->content),
         ]);
 
-        $question->tags()->detach([]);
+        $question->tags()->detach();
         foreach ($submitted_tags as $submitted_tag ) {
             $submitted_tag = strtolower(trim($submitted_tag));
             $tag = Tag::where('title', $submitted_tag)->first();
             if (!$tag) {
                 $tag = Tag::create(['title' => $submitted_tag]);
-                $question->tags()->attach($tag->id);
             }
+            $question->tags()->attach($tag->id);
         }
 
         return redirect('/')->with('message', 'Question is updated successfully.');

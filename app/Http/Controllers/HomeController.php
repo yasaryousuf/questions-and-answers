@@ -15,7 +15,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $recentQuestions = Question::orderBy('created_at')->take(10)->get();
+        $recentQuestions = Question::orderBy('created_at', 'desc')->take(10)->get();
         return view('front.index', \compact('recentQuestions'));
     }
 

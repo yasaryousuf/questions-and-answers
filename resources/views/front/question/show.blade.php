@@ -22,7 +22,6 @@
         </div>
       </div>
     </section>
-    @include('front.others.errorSuccessMessage')
     <section class="section-padding-80 white question-details">
       <div class="container">
         <div class="row">
@@ -51,7 +50,7 @@
             <div class="thread-reply">
               <h2>Thread Reply </h2>
               @foreach ($question->comments as $comment)
-              <div class="media-block card-box ribbon-content">
+              <div class="media-block card-box @if($comment->parent_id == null) ribbon-content @endif " @if($comment->parent_id != null) style="margin-left:40px;" @endif>
                 <div class="ribbon base"><span>Correct Answer</span>
                 </div>
 
@@ -64,22 +63,21 @@
                 </div>
                 <div class="media-body">
                   <div class="mar-btm">
-                    <h4><a href="#" class="btn-link text-semibold media-heading box-inline">
-                  {{$comment->user->name}}
-                </a></h4>
+                    <h4>
+                      <a href="#" class="btn-link text-semibold media-heading box-inline">
+                        {{$comment->user->name}}
+                      </a>
+                    </h4>
                     <p class="text-muted text-sm"><i class="fa fa-mobile fa-lg"></i> - From Mobile - 11 min ago</p>
                   </div>
                   {{$comment->content}}
                   <div class="pad-ver pull-right">
-
                     <a class="btn btn-sm btn-default btn-hover-success" data-toggle="tooltip" data-placement="bottom" data-original-title="Like This Answer" href="#"><i class="fa fa-thumbs-up"></i></a>
                     <a class="btn btn-sm btn-default btn-hover-danger" href="#" data-original-title="Spam" data-placement="bottom" data-toggle="tooltip"><i class="fa fa-thumbs-down"></i></a>
-
                   </div>
-
                 </div>
-              <div class="clearfix"></div>
-                <button class="btn btn-primary btn-lg btn-block reply_answer_show" type="button">Reply to this answer</button>
+                <div class="clearfix"></div>
+                <button class="btn btn-primary reply_answer_show" type="button">Reply to this answer</button>
               <div class="reply_answer_section" style="display: none">
               <form action="/question/{{$question->id}}/comment" method="POST">
                 @csrf

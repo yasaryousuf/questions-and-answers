@@ -9,6 +9,7 @@ $factory->define(Question::class, function (Faker $faker) {
     return [
         'user_id' => rand(1, 10),
         'title' => $faker->sentence(6, true),
+        'slug' => Question::slug($faker->sentence(6, true)),
         'content' => $faker->text(200),
     ];
 });
