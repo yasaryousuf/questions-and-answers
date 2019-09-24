@@ -105,7 +105,7 @@
                       <div class="pull-right tagcloud">
                         @if ($question->tags)
                           @foreach ($question->tags as $tag)
-                            <a href="#">{{$tag->title}}</a> 
+                            <a href="/tag/{{$tag->title}}">{{$tag->title}}</a> 
                           @endforeach
                         @endif
                       </div>

@@ -75,26 +75,26 @@
                         <li>
                           <a data-toggle="tooltip" data-placement="bottom" data-original-title="Votes"><span>0</span></a>
                         </li>
-														<li> 
-															<a href="{{route('questions.edit', [$question->slug])}}" data-toggle="tooltip" data-placement="bottom" data-original-title="Edit">
-																<span><i class="fa fa-edit"></i></span>
-															</a> 
-														</li>
-														<li>
-															<form method="POST" action="{{ route('questions.destroy', [$question->slug]) }}">
-																@csrf
-																@method('DELETE')
-																<a 
-																	class="question-delete-button"
-																	data-toggle="tooltip" 
-																	data-placement="bottom" 
-																	data-original-title="Delete"
-																>
-																	<span><i class="fa fa-times"></i></span>
-																</a> 
-															</form>
+                        <li> 
+                            <a href="{{route('questions.edit', [$question->slug])}}" data-toggle="tooltip" data-placement="bottom" data-original-title="Edit">
+                                <span><i class="fa fa-edit"></i></span>
+                            </a> 
+                        </li>
+                        <li>
+                            <form method="POST" action="{{ route('questions.destroy', [$question->slug]) }}">
+                                @csrf
+                                @method('DELETE')
+                                <a 
+                                    class="question-delete-button"
+                                    data-toggle="tooltip" 
+                                    data-placement="bottom" 
+                                    data-original-title="Delete"
+                                >
+                                    <span><i class="fa fa-times"></i></span>
+                                </a> 
+                            </form>
 
-														</li>
+                        </li>
                       </ul>
                     </div>
 
@@ -105,7 +105,7 @@
                       <div class="pull-right tagcloud">
                         @if ($question->tags)
                           @foreach ($question->tags as $tag)
-                            <a href="#">{{$tag->title}}</a> 
+                            <a href="/tag/{{$tag->title}}">{{$tag->title}}</a> 
                           @endforeach
                         @endif
                       </div>
