@@ -20,3 +20,5 @@ Route::put('/question/{question}', 'QuestionController@update')->name('questions
 Route::delete('/question/{question}', 'QuestionController@destroy')->name('questions.destroy')->middleware('auth');
 
 Route::post('/question/{id}/comment', 'CommentController@store');
+
+Route::get('/tag/{tag}', 'TagController@show');

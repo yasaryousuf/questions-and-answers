@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tag;
+use App\Question;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -44,9 +45,12 @@ class TagController extends Controller
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show(Tag $tag)
+    public function show($tag)
     {
-        //
+        $questions = Question::whereHas('tags', function($query) use ($tag) {
+            $query->where('title', $tag);
+        })->paginate(10);
+        return \view('front.tag.index', \compact('questions', 'tag'));
     }
 
     /**
