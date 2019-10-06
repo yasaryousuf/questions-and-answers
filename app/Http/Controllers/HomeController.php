@@ -12,11 +12,16 @@ class HomeController extends Controller
 
     }
 
+    public function latestComment()
+    {
+        return $this->hasOne('Comment')->latest();
+    }
 
     public function index()
     {
+        $recentlyAnsweredQuestions = Question::with('latestComment')->get();
         $recentQuestions = Question::orderBy('created_at', 'desc')->take(10)->get();
-        return view('front.index', \compact('recentQuestions'));
+        return view('front.index', \compact('recentQuestions, recentlyAnsweredQuestions'));
     }
 
 
