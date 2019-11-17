@@ -128,7 +128,7 @@ $(function(){
               </div>
               <div class="clearfix"></div>
 
-              <form action="/question/{{$question->id}}/comment" method="POST">
+              <form action="/questions/{{$question->id}}/comment" method="POST">
                 @csrf
                 <div class="form-group">
                   <label>Post Your Answer</label>

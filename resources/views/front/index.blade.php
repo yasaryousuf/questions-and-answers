@@ -38,7 +38,7 @@
 													</a>
 												</div>
 												<div class="col-md-7 col-sm-8  col-xs-12">
-												<h3><a  href="/question/{{$recentQuestion->slug}}"> {{$recentQuestion->title}} </a></h3>
+												<h3><a  href="/questions/{{$recentQuestion->slug}}"> {{$recentQuestion->title}} </a></h3>
 													<div class="listing-meta"> 
 														<span><i class="fa fa-clock-o" aria-hidden="true"></i>{{$recentQuestion->created_at}}</span>  
 														<span><i class="fa fa fa-eye" aria-hidden="true"></i> 750 Views</span> 

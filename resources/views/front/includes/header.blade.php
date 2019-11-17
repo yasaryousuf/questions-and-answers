@@ -73,7 +73,7 @@
 					</li>
 
 					<li>
-						<div class="btn-nav"><a href="/question/ask" class="btn btn-primary btn-small navbar-btn">Post Question</a>
+						<div class="btn-nav"><a href="/questions/ask" class="btn btn-primary btn-small navbar-btn">Post Question</a>
 						</div>
 					</li>
 				</ul>

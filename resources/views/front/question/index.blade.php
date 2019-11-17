@@ -50,7 +50,6 @@
                       <a data-toggle="tooltip" data-placement="bottom" data-original-title="{{$question->user['name']}}" href="#">
                       <img alt="" class="correct img-responsive center-block" src="{{asset('/image/avatar/'.$question->user['avatar'])}}">
                       </a>
-                      {{-- <span class="tick"><i class="fa fa-check" aria-hidden="true"></i></span> --}}
                     </div>
                     <div class="col-md-7 col-sm-8  col-xs-12">
                         <h3>
@@ -127,7 +126,6 @@
                 <!-- Pagination View More End -->
 
               </div>
-
               <!-- Question Area Panel End -->
             </div>
           </div>
@@ -260,13 +258,88 @@
 @endsection
 
 @section('script')
-<script>
-        jQuery.ajax({
-            type: 'get',
-            url: '/api/questions',
-            data: {
-                api_token: "<?= auth()->user()->api_token ?>",
-            },
+{{-- <script>
+  jQuery.ajax({
+      type: 'get',
+      url: '/api/questions',
+
+  }).done(function(response) {
+      console.log(response);
+      if(response.data) {
+        let questions = response.data.map(question => {
+          return `
+                <div class="listing-grid ">
+                  <div class="row">
+                    <div class="col-md-2 col-sm-2 col-xs-12 hidden-xs">
+                      <a data-toggle="tooltip" data-placement="bottom" data-original-title="${question.user.name}" href="#">
+                      <img alt="" class="correct img-responsive center-block" src="/image/avatar/${question.user.avatar}">
+                      </a>
+                    </div>
+                    <div class="col-md-7 col-sm-8  col-xs-12">
+                        <h3>
+                            <a href="/question/${question.slug}"> 
+                                ${question.title}	
+                            </a>
+                        </h3>
+                      <div class="listing-meta">
+                        <span><i class="fa fa-clock-o" aria-hidden="true"></i>${question.created_at}</span>
+                        <span><i class="fa fa fa-eye" aria-hidden="true"></i> 750 Views</span>
+                          <span><i class="fa fa-comment" aria-hidden="true"></i>${question.comments.length} Comment</span>
+
+                      </div>
+
+                    </div>
+                    <div class="col-md-3 col-sm-2 col-xs-12">
+                      <ul class="question-statistic">
+
+                        <li class="active">
+                          <a data-toggle="tooltip" data-placement="bottom" data-original-title="Answers"><span>2</span></a>
+                        </li>
+                        <li>
+                          <a data-toggle="tooltip" data-placement="bottom" data-original-title="Votes"><span>0</span></a>
+                        </li>
+														<li> 
+															<a href="{{route('questions.edit', [$question->slug])}}" data-toggle="tooltip" data-placement="bottom" data-original-title="Edit">
+																<span><i class="fa fa-edit"></i></span>
+															</a> 
+														</li>
+														<li>
+															<form method="POST" action="{{ route('questions.destroy', [$question->slug]) }}">
+																@csrf
+																@method('DELETE')
+																<a 
+																	class="question-delete-button"
+																	data-toggle="tooltip" 
+																	data-placement="bottom" 
+																	data-original-title="Delete"
+																>
+																	<span><i class="fa fa-times"></i></span>
+																</a> 
+															</form>
+
+														</li>
+                      </ul>
+                    </div>
+
+                    <div class="col-md-10 col-sm-10  col-xs-12">
+                      <p>
+                        ${question.content}
+                      </p>
+                      <div class="pull-right tagcloud">
+                        @if ($question->tags)
+                          @foreach ($question->tags as $tag)
+                            <a href="/tag/{{$tag->title}}">{{$tag->title}}</a> 
+                          @endforeach
+                        @endif
+                      </div>
+                    </div>
+
+                  </div>
+                </div>        
+          `;
         })
-</script>
+        jQuery('.listing-area').append(questions); 
+      }
+  });
+</script> --}}
 @endsection
