@@ -258,3 +258,15 @@
     <!-- =-=-=-=-=-=-= Latest Questions  End =-=-=-=-=-=-= -->
   </div>    
 @endsection
+
+@section('script')
+<script>
+        jQuery.ajax({
+            type: 'get',
+            url: '/api/questions',
+            data: {
+                api_token: "<?= auth()->user()->api_token ?>",
+            },
+        })
+</script>
+@endsection
