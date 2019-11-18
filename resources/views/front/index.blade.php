@@ -162,12 +162,12 @@
 								</div>
 								<div id="tab3" class="tab-pane">
 									<!-- Question Listing -->
-									{{-- @foreach ($recentlyAnsweredQuestions as $recentQuestion)
+									@foreach ($recentlyAnsweredQuestions as $recentQuestion)
 										<div class="listing-grid">
 											<div class="row">
 												<div class="col-md-2 col-sm-2 col-xs-12 hidden-xs">
-												<a data-toggle="tooltip" data-placement="bottom" data-original-title="{{$recentQuestion->name}}" href="/user/{{$recentQuestion->id}}">
-														<img alt="" class="img-responsive center-block" src="/image/avatar/{{$recentQuestion->avatar}}">
+												<a data-toggle="tooltip" data-placement="bottom" data-original-title="{{$recentQuestion->user->name}}" href="/user/{{$recentQuestion->user->id}}">
+														<img alt="" class="img-responsive center-block" src="/image/avatar/{{$recentQuestion->user->avatar}}">
 													</a>
 												</div>
 												<div class="col-md-7 col-sm-8  col-xs-12">
@@ -224,7 +224,7 @@
 												</div>
 											</div>
 										</div>
-									@endforeach --}}
+									@endforeach
 									<!-- Question Listing End -->
 								</div>
 								<div id="tab4" class="tab-pane">

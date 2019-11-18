@@ -7,22 +7,23 @@
 	<title>Knowledge - Q&A</title>
 	<link rel="icon" href="{{asset('/')}}front/images/favicon.ico" type="image/x-icon" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	
 	<link rel="stylesheet" href="{{asset('/')}}front/css/bootstrap.css">
 	<link rel="stylesheet" href="{{asset('/')}}front/css/tags-input.css">
 	<link rel="stylesheet" href="{{asset('/')}}front/css/style.css">
 	<link rel="stylesheet" href="{{asset('/')}}front/css/style-02.css">
-	<link rel="stylesheet" href="{{asset('/')}}front/css/font-awesome.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	{{-- <link rel="stylesheet" href="{{asset('/')}}front/css/et-line-fonts.css"> --}}
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic|Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="{{asset('/')}}front/css/owl.carousel.css">
-	<link rel="stylesheet" type="text/css" href="{{asset('/')}}front/css/owl.style.css">
+	{{-- <link rel="stylesheet" type="text/css" href="{{asset('/')}}front/css/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('/')}}front/css/owl.style.css"> --}}
 	{{-- <link type="text/css" rel="stylesheet" href="{{asset('/')}}front/css/styles/shCoreDefault.css" /> --}}
     <link type="text/css" rel="stylesheet" href="{{asset('/')}}front/css/animate.min.css" />
     <link type="text/css" rel="stylesheet" href="{{asset('/')}}front/css/toastr.min.css" />
 	{{-- <link type="text/css" rel="stylesheet" href="{{asset('/')}}front/css/bootstrap-dropdownhover.min.css" /> --}}
 	@yield('style')
 	<script src="{{asset('/')}}front/js/jquery.min.js"></script>
-	<script src="{{asset('/')}}front/js/modernizr.js"></script>
+	{{-- <script src="{{asset('/')}}front/js/modernizr.js"></script> --}}
 </head>
 
 <body>
